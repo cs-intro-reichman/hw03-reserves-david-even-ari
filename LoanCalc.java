@@ -40,15 +40,17 @@ public class LoanCalc {
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
     	// Replace the following statement with your code
-		double periodical = 1.0;
-		double p10 ;
+		double periodical = epsilon;
+		double p10=loan ;
         int count =0;
-		while (true) {
+	
+		
+		while ((p10) > epsilon) {
 			p10 = loan ;
 			for (int i=0 ;i <n ; i++){
 				p10 =( (p10 - periodical )* (1+ rate/100 ));
 			}
-		 if (Math.abs(p10) < epsilon ) {
+		 if ((p10) < epsilon ) {
 			break ;
 		 } else {
 			periodical += epsilon ;
@@ -73,6 +75,7 @@ public class LoanCalc {
 		double H =loan*(1+rate/100);
         int count = 0; 
 		double	g =(L+H)/2;
+		
 		
 		while (H-L> epsilon) {
 		
