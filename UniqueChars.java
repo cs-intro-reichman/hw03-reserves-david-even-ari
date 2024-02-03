@@ -12,6 +12,26 @@ public class UniqueChars {
      */
     public static String uniqueChars(String s) {
         // Replace the following statement with your code
-        return null;
+        String uniqe ="";
+         uniqe += s.charAt(0);
+
+          for(int i =1 ; i< s.length(); i++){
+            char c = s.charAt(i);
+            if (s.charAt(i)==32) {
+                uniqe += " ";
+            }
+            boolean flag = true ;
+            for(int n=0 ;n< i;n++){
+                
+                 if (s.charAt(n)==c) {
+                    flag =false ;
+                 } 
+                 }
+                 if (flag) {
+                    uniqe += c;
+            }
+          }
+
+        return uniqe;
     }
 }
